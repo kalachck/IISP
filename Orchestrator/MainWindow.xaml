@@ -1,0 +1,44 @@
+﻿<Window x:Class="Orchestrator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Orchestrator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="850"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid Margin="19,27,21,307" Height="200" Width="810">
+            <TextBlock Margin="36,48,474,83" TextWrapping="Wrap" Width="300">
+                <TextBlock.Text>Enter the addresses of the Workers in the format http://&lt;IPAddress&gt;:&lt;Port&gt; separated by commas</TextBlock.Text>
+            </TextBlock>
+            <TextBox x:Name="WorkersAddressesTextBox" Margin="36,117,474,23" AcceptsReturn="True" TextWrapping="Wrap" Height="60"
+                     Width="300"/>
+            <TextBlock Margin="348,50,162,100" TextWrapping="Wrap" Height="50" Width="300">
+                <TextBlock.Text>Enter password in English</TextBlock.Text>
+            </TextBlock>
+            <TextBox x:Name="PasswordTextBox" Margin="348,117,162,23" AcceptsReturn="True" TextWrapping="Wrap" Height="60"
+         Width="300"/>
+            <Button Width="100" Height="60" x:Name="AcceptWrokersButton" Click="AcceptWrokersButton_Click" Margin="669,117,41,23">Enter</Button>
+        </Grid>
+        <Grid Height="200" Margin="19,220,153,14">
+            <Label Margin="39,10,339,160" FontSize="14" Height="30" Content="Result" Width="300"/>
+            <TextBlock x:Name="ResultTextBlock" Width="342" Height="116" Margin="39,45,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                       RenderTransformOrigin="0.48,0.638"/>
+        </Grid>
+    </Grid>
+</Window>
