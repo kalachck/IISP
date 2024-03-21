@@ -22,7 +22,7 @@ public class PasswordCrackerService : PasswordCracker.PasswordCrackerBase
         {
             await foreach (var request in requestStream.ReadAllAsync())
             {
-                Console.WriteLine($"Начинаем взлом пароля для воркера {request.WorkerIndex} из {request.WorkersCount}");
+                Console.WriteLine($"We are starting to crack the password for the worker {request.WorkerIndex} of the {request.WorkersCount}");
 
                 _secretPassword = request.Password;
 

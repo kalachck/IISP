@@ -18,7 +18,7 @@ class Program
         }
         else
         {
-            Console.WriteLine($"Хост не был указан или указан неверно, используется хост по умолчанию: {_host}");
+            Console.WriteLine($"The host was not specified or specified incorrectly, the default host is used: {_host}");
         }
 
         if (parameters.ContainsKey("port") && int.TryParse(parameters["port"], out var portValue))
@@ -27,7 +27,7 @@ class Program
         }
         else
         {
-            Console.WriteLine($"Порт не был указан или указан неверно, используется хост по умолчанию: {_port}");
+            Console.WriteLine($"The port was not specified or specified incorrectly, the default host is used: {_port}");
         }
 
         var startServer = Task.Run(() =>
@@ -37,18 +37,19 @@ class Program
                 Services = { PasswordCracker.BindService(new PasswordCrackerService()) },
                 Ports = { new ServerPort(_host, _port, ServerCredentials.Insecure) }
             };
+
             server.Start();
             
             Console.ReadKey();
             server.ShutdownAsync().Wait();
         });
 
-        Console.WriteLine($"Worker запущен по адресу http://{_host}:{_port}");
-        Console.WriteLine("Нажмите любую клавишу для выхода...");
+        Console.WriteLine($"Worker is launched at http://{_host}:{_port}");
+        Console.WriteLine("Press any key to exit...");
 
         await startServer;
         
-        Console.WriteLine("Завершение работы воркера...");
+        Console.WriteLine("Completion of the worker's work...");
     }
     
     private static Dictionary<string, string?> ParseCommandLineArguments(string[] args)

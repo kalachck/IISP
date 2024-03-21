@@ -26,19 +26,26 @@
             <TextBlock Margin="36,48,474,83" TextWrapping="Wrap" Width="300">
                 <TextBlock.Text>Enter the addresses of the Workers in the format http://&lt;IPAddress&gt;:&lt;Port&gt; separated by commas</TextBlock.Text>
             </TextBlock>
+            <Button x:Name="AdressesClearButton" Margin="284,155,474,23" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1" Click="AdressesClearButton_Click">
+                Clear
+            </Button>
             <TextBox x:Name="WorkersAddressesTextBox" Margin="36,117,474,23" AcceptsReturn="True" TextWrapping="Wrap" Height="60"
                      Width="300"/>
             <TextBlock Margin="348,50,162,100" TextWrapping="Wrap" Height="50" Width="300">
                 <TextBlock.Text>Enter password in English</TextBlock.Text>
             </TextBlock>
+            <Button x:Name="PasswordClearButton" Margin="596,155,162,23" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1" Click="PasswordClearButton_Click">
+                Clear
+            </Button>
             <TextBox x:Name="PasswordTextBox" Margin="348,117,162,23" AcceptsReturn="True" TextWrapping="Wrap" Height="60"
          Width="300"/>
             <Button Width="100" Height="60" x:Name="AcceptWrokersButton" Click="AcceptWrokersButton_Click" Margin="669,117,41,23">Enter</Button>
         </Grid>
-        <Grid Height="200" Margin="19,220,153,14">
-            <Label Margin="39,10,339,160" FontSize="14" Height="30" Content="Result" Width="300"/>
+        <Grid Height="200" Margin="19,270,115,64">
+            <Label Margin="39,10,358,160" FontSize="14" Height="30" Content="Result"/>
             <TextBlock x:Name="ResultTextBlock" Width="342" Height="116" Margin="39,45,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" 
                        RenderTransformOrigin="0.48,0.638"/>
+            <Button x:Name="ClearResultsButton" Margin="526,72,67,66" Width="100" Height="50" Click="ClearResultsButton_Click">Clear</Button>
         </Grid>
     </Grid>
 </Window>

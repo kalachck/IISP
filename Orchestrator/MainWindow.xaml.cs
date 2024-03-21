@@ -35,18 +35,18 @@ public partial class MainWindow : Window
 
         _workerAddresses = WorkersAddressesTextBox.Text.Trim().Split(',', ' ').ToList();
 
-        await InitializeConnectionAsync(PasswordTextBox);
+        await InitializeConnectionAsync(ResultTextBlock);
     }
 
-    private async Task InitializeConnectionAsync(TextBox passwordTextBlock)
+    private async Task InitializeConnectionAsync(TextBlock resultTextBox)
     {
         var startTime = DateTime.Now;
 
         try
         {
-            var orchestrator = new PasswordOrchestrator(_workerAddresses, passwordTextBlock.Text);
+            var orchestrator = new PasswordOrchestrator(_workerAddresses, resultTextBox.Text);
 
-            await orchestrator.DistributeAndCrackPasswordAsync(passwordTextBlock);
+            await orchestrator.DistributeAndCrackPasswordAsync(resultTextBox);
         }
         catch (Grpc.Core.RpcException e)
         {
@@ -60,5 +60,20 @@ public partial class MainWindow : Window
         {
             ResultTextBlock.Text += $"\nWorking time: {(DateTime.Now - startTime).TotalSeconds} seconds";
         }
+    }
+
+    private void ClearResultsButton_Click(object sender, RoutedEventArgs e)
+    {
+        ResultTextBlock.Text = string.Empty;
+    }
+
+    private void AdressesClearButton_Click(object sender, RoutedEventArgs e)
+    {
+        WorkersAddressesTextBox.Text = string.Empty;
+    }
+
+    private void PasswordClearButton_Click(object sender, RoutedEventArgs e)
+    {
+        PasswordTextBox.Text = string.Empty;
     }
 }

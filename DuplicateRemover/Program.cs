@@ -9,15 +9,10 @@ class Program
 
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello world");
-        BenchmarkRunner.Run<FileReader>();
+        Console.SetCursorPosition(10, 5);
+        Console.Write("Это новая позиция курсора");
 
-         var list = ReadFromPosition().Split('\n', '\r').Distinct().ToList();
-        
-         foreach (var item in list)
-         {
-             Console.WriteLine(item);
-         }
+
     }
 
     private static string GetAddSomethingCool()

@@ -18,7 +18,7 @@ public class PasswordOrchestrator
         _password = password;
     }
     
-    public async Task DistributeAndCrackPasswordAsync(TextBox textBlock)
+    public async Task DistributeAndCrackPasswordAsync(TextBlock textBlock)
     {
         foreach (var workerAddress in _workerAddresses)
         {
@@ -26,7 +26,7 @@ public class PasswordOrchestrator
         }
     }
 
-    private async Task InitiateCrackingSession(string workerAddress, TextBox textBlock)
+    private async Task InitiateCrackingSession(string workerAddress, TextBlock textBlock)
     {
         using var channel = GrpcChannel.ForAddress(workerAddress);
         var client = new PasswordCracker.PasswordCrackerClient(channel);
